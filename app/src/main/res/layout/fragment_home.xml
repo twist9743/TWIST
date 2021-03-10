@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment"
+    android:background="@color/cardview_dark_background">
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="134dp"
+            android:layout_height="196dp" />
+
+        <EditText
+            android:id="@+id/editTextTextMultiLine2"
+            android:layout_width="162dp"
+            android:layout_height="196dp"
+            android:background="@null"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textMultiLine"
+            android:maxHeight="1sp"
+            android:text="TextField"
+            android:textColor="#00F6F6"
+            android:typeface="normal"
+            app:layout_column="1"
+            app:layout_row="0" />
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="117dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="10sp"
+            android:text="Switch"
+            android:textColor="#00F6F6"
+            app:layout_column="0"
+            app:layout_row="1" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/range_slider"
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:stepSize="5"
+            android:value="20"
+            android:valueFrom="0"
+            android:valueTo="100"
+            app:layout_column="1"
+            app:layout_row="1"
+            app:values="@array/rangeSliderValues" />
+
+    </androidx.gridlayout.widget.GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
