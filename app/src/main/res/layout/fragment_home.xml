@@ -4,69 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
-    android:background="@color/cardview_dark_background">
+    android:layout_gravity="center_vertical"
+    android:background="@color/cardview_dark_background"
+    app:layout_gravity="center_vertical"
+    tools:context=".ui.home.HomeFragment">
 
-    <androidx.gridlayout.widget.GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:orientation="vertical">
 
-        <ProgressBar
-            android:id="@+id/progressBar2"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="134dp"
-            android:layout_height="196dp" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine2"
-            android:layout_width="260dp"
-            android:layout_height="196dp"
-            android:background="@null"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="textMultiLine"
-            android:maxHeight="1sp"
-            android:text="TextField"
-            android:textColor="#00F6F6"
-            android:typeface="normal"
-            app:layout_column="1"
-            app:layout_row="0" />
-
-        <Switch
-            android:id="@+id/switch2"
-            android:layout_width="117dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="10sp"
-            android:text="Switch"
-            android:textColor="#00F6F6"
-            app:layout_column="0"
-            app:layout_row="1" />
-
-        <com.google.android.material.slider.RangeSlider
-            android:id="@+id/range_slider"
-            android:layout_width="259dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:stepSize="5"
-            android:value="20"
-            android:valueFrom="0"
-            android:valueTo="100"
-            app:layout_column="1"
-            app:layout_row="1"
-            app:values="@array/rangeSliderValues" />
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="126dp"
+                android:layout_height="150dp" />
+
+            <EditText
+                android:id="@+id/editTextTextMultiLine2"
+                android:layout_width="253dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="textMultiLine"
+                android:maxHeight="1sp"
+                android:text="TextField"
+                android:textColor="#00F6F6"
+                android:typeface="normal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/range_slider"
+                android:layout_width="259dp"
+                android:layout_height="wrap_content"
+                android:stepSize="5"
+                android:value="20"
+                android:valueFrom="0"
+                android:valueTo="100"
+                app:values="@array/rangeSliderValues" />
+
+            <Switch
+                android:id="@+id/switch2"
+                android:layout_width="117dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="10sp"
+                android:text="Switch"
+                android:textColor="#00F6F6" />
+        </LinearLayout>
 
         <ProgressBar
             android:id="@+id/progressBar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="138dp"
             android:layout_height="117dp"
-            android:progress="50"
-            app:layout_column="1"
-            app:layout_row="2"
+            android:layout_gravity="center_horizontal"
 
+            android:progress="50"
             tools:visibility="visible" />
 
-    </androidx.gridlayout.widget.GridLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
