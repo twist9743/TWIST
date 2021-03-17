@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Lunin_IA_191_352</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Lab 1</string>
+    <string name="title_dashboard">Lab 2</string>
+    <string name="title_notifications">Lab 3</string>
     <string-array name="rangeSliderValues">
         <item>20</item>
         <item>70</item>
