@@ -12,11 +12,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
@@ -32,6 +38,7 @@
                 android:layout_width="253dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:autofillHints=""
                 android:background="@drawable/edittextstyle"
                 android:ems="10"
                 android:gravity="center"
@@ -45,6 +52,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
