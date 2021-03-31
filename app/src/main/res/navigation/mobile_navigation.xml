@@ -22,4 +22,9 @@
         android:name="com.example.lunin_ia_191_352.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_lab3"
+        android:name="com.example.lunin_ia_191_352.ui.lab3.Lab3Fragment"
+        android:label="lab3"
+        tools:layout="@layout/fragment_lab3" />
 </navigation>
