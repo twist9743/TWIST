@@ -77,15 +77,40 @@
                 android:textColor="#00F6F6" />
         </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="138dp"
-            android:layout_height="117dp"
-            android:layout_gravity="center_horizontal"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
 
-            android:progress="50"
-            tools:visibility="visible" />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="138dp"
+                android:layout_height="117dp"
+                android:layout_gravity="center_horizontal"
+
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:progress="50"
+                tools:visibility="visible" />
+
+            <com.example.lunin_ia_191_352.ui.home.RotaryKnobView
+                android:id="@+id/knob"
+                class="com.example.lunin_ia_191_352.ui.home.RotaryKnobView"
+                android:layout_width="@dimen/knob_width"
+                android:layout_height="@dimen/knob_height"
+                android:layout_marginBottom="312dp"
+                app:initialValue="50"
+                app:knobDrawable="@drawable/ic_rotary_knob"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:maxValue="100"
+                app:minValue="0" />
+        </LinearLayout>
 
     </LinearLayout>
 

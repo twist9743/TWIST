@@ -1,4 +1,4 @@
-package geva.oren.rotaryknobdemo
+package com.example.lunin_ia_191_352.ui.home
 
 import android.content.Context
 import android.graphics.Matrix
@@ -10,6 +10,7 @@ import android.view.MotionEvent
 import android.widget.ImageView.ScaleType
 import android.widget.RelativeLayout
 import androidx.core.view.GestureDetectorCompat
+import com.example.lunin_ia_191_352.R
 import kotlinx.android.synthetic.main.rotary_knob_view.view.*
 import kotlin.math.atan2
 
