@@ -20,11 +20,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/switchtocamera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Switch"
-            android:visibility="gone" />
+            android:textColor="@color/white" />
 
         <VideoView
             android:id="@+id/CustomVideo"
@@ -33,11 +33,32 @@
             android:layout_gravity="center_horizontal"
             android:layout_weight="1" />
 
+        <androidx.camera.view.PreviewView
+            android:id="@+id/viewFinder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:visibility="gone" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:orientation="vertical">
+
+            <Button
+                android:id="@+id/camera_capture_button"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="50dp"
+                android:elevation="2dp"
+                android:scaleType="fitCenter"
+                android:text="Take Photo"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
 
             <SeekBar
                 android:id="@+id/videoPos"

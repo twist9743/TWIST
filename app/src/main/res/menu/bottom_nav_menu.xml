@@ -18,6 +18,6 @@
     <item
         android:id="@+id/navigation_lab3"
         android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:title="@string/title_lab4" />
 
 </menu>

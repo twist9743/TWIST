@@ -3,9 +3,11 @@
     <string name="title_home">Lab 1</string>
     <string name="title_dashboard">Lab 2</string>
     <string name="title_notifications">Lab 3</string>
+    <string name="title_lab4">Lab 4</string>
     <string name="take_picture">Picture</string>
     <string name="start_record">Start</string>
     <string name="stop_record">Stop</string>
+    <integer name="com_vk_sdk_AppId">7816534</integer>
     <string-array name="rangeSliderValues">
         <item>20</item>
         <item>70</item>
