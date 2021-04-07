@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "114072376964",
+    "project_id": "lab4-twitter",
+    "storage_bucket": "lab4-twitter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114072376964:android:0bff83d229699ac11694d1",
+        "android_client_info": {
+          "package_name": "com.example.lunin_ia_191_352"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114072376964-k22sm5vajebb0nq66upantr96lu794rl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACEmSJqPKE5DvkE5ldYcZ1KKG2YxYPFQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114072376964-k22sm5vajebb0nq66upantr96lu794rl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
