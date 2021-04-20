@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         val callback = object : VKAuthCallback {
             override fun onLogin(token: VKAccessToken) {
                 textView3.text = token.accessToken
+
             }
 
             override fun onLoginFailed(errorCode: Int) {

@@ -34,26 +34,14 @@ class Lab3Fragment : Fragment() {
         val vkBtn = root.findViewById<Button>(R.id.vkbtn)
         val vkToken = root.findViewById<TextView>(R.id.textView3)
         vkBtn.setOnClickListener {
-            VK.login(requireActivity(), arrayListOf(VKScope.WALL, VKScope.PHOTOS))
-            if (VK.isLoggedIn()) {
-                val token = VKAccessToken.restore(
-                    activity?.getSharedPreferences(
-                        "com.vkontakte.android_pref_name",
-                        Context.MODE_PRIVATE))
-                vkToken.text = token?.accessToken
-            }
+            VK.login(requireActivity(), arrayListOf(VKScope.FRIENDS, VKScope.PHOTOS))
+
         }
         return root
     }
 
 
-    companion object {
-        fun startFrom(context: Context) {
-            val intent = Intent(context, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-            context.startActivity(intent)
-        }
-    }
+
 }
 
 

@@ -17,7 +17,11 @@
         android:title="@string/title_notifications" />
     <item
         android:id="@+id/navigation_lab3"
-        android:icon="@drawable/ic_notifications_black_24dp"
+        android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_lab4" />
+    <item
+        android:id="@+id/navigation_lab5"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="@string/title_lab5" />
 
 </menu>
