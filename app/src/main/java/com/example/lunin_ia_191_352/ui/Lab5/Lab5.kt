@@ -15,7 +15,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.lunin_ia_191_352.R
 import com.example.lunin_ia_191_352.ui.Lab5.Lab5ViewModel
 import com.squareup.picasso.Picasso
@@ -73,7 +75,7 @@ class Lab5Fragment : Fragment() {
     }
     private fun showFriends(friends: List<VKUser>,root:View) {
         val recyclerView = root.findViewById<RecyclerView>(R.id.VkFriends)
-        recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+        recyclerView.layoutManager = androidx.recyclerview.widget.GridLayoutManager(requireContext(),GridLayoutManager.VERTICAL)
 
         val adapter = FriendsAdapter()
         adapter.setData(friends)
@@ -106,6 +108,7 @@ class Lab5Fragment : Fragment() {
         fun bind(user: VKUser) {
             nameTV.text = "${user.firstName} ${user.lastName} "
             //avatarIV.setImageResource(user.photo.)
+            avatarIV.setImageResource(R.drawable.user_placeholder)
             Picasso.get()
                 .load(user.photo)
                 .into(avatarIV)
