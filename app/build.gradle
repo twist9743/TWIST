@@ -64,6 +64,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.vk:android-sdk-core:3.0.0'
     implementation 'com.vk:android-sdk-api:3.0.0'
+
+    implementation 'bouncycastle:bcprov-jdk16:136'
+
     implementation platform('com.google.firebase:firebase-bom:26.8.0')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
