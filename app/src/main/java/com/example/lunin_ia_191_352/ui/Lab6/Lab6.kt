@@ -23,6 +23,7 @@ import java.net.URI
 import android.os.Environment
 import android.util.Base64.encode
 import android.widget.EditText
+import android.widget.TextView
 import androidx.core.net.toFile
 import com.google.android.gms.common.util.Base64Utils.encode
 import org.bouncycastle.jce.provider.BouncyCastleProvider
@@ -37,7 +38,8 @@ import javax.crypto.spec.SecretKeySpec
 class Lab6Fragment : Fragment() {
 
     private lateinit var lab6ViewModel: Lab6ViewModel
-    private lateinit var key : EditText
+    private lateinit var keyEditText : EditText
+    private lateinit var result : TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,7 +49,8 @@ class Lab6Fragment : Fragment() {
         lab6ViewModel =
             ViewModelProvider(this).get(Lab6ViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_lab6, container, false)
-        key = root.findViewById<EditText>(R.id.Key)
+        keyEditText = root.findViewById<EditText>(R.id.Key)
+        result = root.findViewById<TextView>(R.id.Result)
         val chose_file = root.findViewById<Button>(R.id.chose_file)
         val decrypt_file = root.findViewById<Button>(R.id.decrypt)
         chose_file.setOnClickListener {
@@ -123,13 +126,16 @@ class Lab6Fragment : Fragment() {
 
                 val text = readTextFromUri(selectedFile)
 
-                val encText = encrypt(text, key.text.toString())
+                val key = keyGen(keyEditText.text.toString())
+
+                val encText = encrypt(text, key)
 
                 val newFile = File(getOutputDirectory(), "${fileName}_enc.txt")
 
 
                 if (encText != null) {
                     newFile.writeText(encText)
+                    result.text = encText
                 }
 
 
@@ -144,12 +150,15 @@ class Lab6Fragment : Fragment() {
 
                 val text = readTextFromUri(selectedFile)
 
-                val decText = decrypt(text, key.text.toString())
+                val key = keyGen(keyEditText.text.toString())
+
+                val decText = decrypt(text, key)
 
                 val newFile = File(getOutputDirectory(), "${fileName}_dec.txt")
 
 
                 if (decText != null) {
+                    result.text = decText
                     newFile.writeText(decText)
                 }
 
@@ -176,7 +185,7 @@ class Lab6Fragment : Fragment() {
             BufferedReader(InputStreamReader(inputStream)).use { reader ->
                 var line: String? = reader.readLine()
                 while (line != null) {
-                    stringBuilder.append(line)
+                    stringBuilder.append(line+"\n")
                     line = reader.readLine()
                 }
             }
@@ -232,6 +241,19 @@ class Lab6Fragment : Fragment() {
             }
         return null
     }
+
+    private fun keyGen(key: String): String {
+        var mKey = key
+        if (key.length != 32){
+            mKey += List(32 - key.length) {
+                (('a'..'z') + ('A'..'Z') + ('0'..'9')).random()
+            }.joinToString("")
+        }
+        keyEditText.setText(mKey)
+        return mKey
+    }
+
+
 
     companion object {
         const val ENCRYPT = 111
