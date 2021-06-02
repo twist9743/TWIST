@@ -33,7 +33,8 @@ import java.security.Security
 import java.util.*
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
-
+import java.math.BigInteger
+import java.security.MessageDigest
 
 class Lab6Fragment : Fragment() {
 
@@ -243,14 +244,8 @@ class Lab6Fragment : Fragment() {
     }
 
     private fun keyGen(key: String): String {
-        var mKey = key
-        if (key.length != 32){
-            mKey += List(32 - key.length) {
-                (('a'..'z') + ('A'..'Z') + ('0'..'9')).random()
-            }.joinToString("")
-        }
-        keyEditText.setText(mKey)
-        return mKey
+        val md = MessageDigest.getInstance("MD5")
+        return BigInteger(1, md.digest(key.toByteArray())).toString(16).padStart(32, '0')
     }
 
 
