@@ -64,6 +64,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.vk:android-sdk-core:3.0.0'
     implementation 'com.vk:android-sdk-api:3.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.6.0'
+
+    implementation "org.java-websocket:Java-WebSocket:1.5.1"
 
     implementation 'bouncycastle:bcprov-jdk16:136'
 

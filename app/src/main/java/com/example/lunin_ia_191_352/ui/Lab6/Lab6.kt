@@ -6,35 +6,27 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.provider.DocumentsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.lunin_ia_191_352.MainActivity
 import com.example.lunin_ia_191_352.R
-import com.example.lunin_ia_191_352.ui.Lab5.Lab5ViewModel
-import com.example.lunin_ia_191_352.ui.dashboard.DashboardFragment
-import java.net.URI
-import android.os.Environment
-import android.util.Base64.encode
-import android.widget.EditText
-import android.widget.TextView
-import androidx.core.net.toFile
 import com.google.android.gms.common.util.Base64Utils.encode
 import org.bouncycastle.jce.provider.BouncyCastleProvider
-import org.w3c.dom.Text
-import java.io.*
-import java.security.Security
-import java.util.*
-import javax.crypto.Cipher
-import javax.crypto.spec.SecretKeySpec
+import java.io.BufferedReader
+import java.io.File
+import java.io.InputStreamReader
 import java.math.BigInteger
 import java.security.MessageDigest
+import java.security.Security
+import javax.crypto.Cipher
+import javax.crypto.spec.SecretKeySpec
 
 class Lab6Fragment : Fragment() {
 

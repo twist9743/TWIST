@@ -2,10 +2,7 @@ package com.example.lunin_ia_191_352.ui.Lab5
 
 import android.content.ContentValues.TAG
 import android.content.Context
-import android.icu.number.NumberFormatter.with
-import android.icu.number.NumberRangeFormatter.with
 import android.os.Bundle
-import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -17,17 +14,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.lunin_ia_191_352.R
-import com.example.lunin_ia_191_352.ui.Lab5.Lab5ViewModel
 import com.squareup.picasso.Picasso
-import com.vk.api.sdk.requests.VKRequest
 import com.vk.api.sdk.VK
 import com.vk.api.sdk.VKApiCallback
-import com.vk.api.sdk.auth.VKAccessToken
-import com.vk.api.sdk.auth.VKAuthCallback
-import com.vk.api.sdk.auth.VKScope
-import com.vk.api.sdk.ui.VKWebViewAuthActivity
 import com.vk.sdk.api.friends.FriendsService
 import com.vk.sdk.api.friends.dto.FriendsGetFieldsResponse
 import com.vk.sdk.api.users.dto.UsersFields

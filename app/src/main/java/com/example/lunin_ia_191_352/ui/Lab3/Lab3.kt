@@ -1,7 +1,5 @@
 package com.example.lunin_ia_191_352.ui.lab3
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,13 +8,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.lunin_ia_191_352.MainActivity
 import com.example.lunin_ia_191_352.R
 import com.vk.api.sdk.VK
-import com.vk.api.sdk.auth.VKAccessToken
-import com.vk.api.sdk.auth.VKAuthCallback
 import com.vk.api.sdk.auth.VKScope
-import com.vk.api.sdk.ui.VKWebViewAuthActivity
 
 
 class Lab3Fragment : Fragment() {
