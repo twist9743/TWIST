@@ -1,31 +1,25 @@
 package com.example.lunin_ia_191_352.ui.Lab7
 
-import android.net.Uri
 import android.os.Bundle
-import android.os.ProxyFileDescriptorCallback
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ScrollView
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lunin_ia_191_352.R
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import okhttp3.WebSocket
 import org.java_websocket.client.WebSocketClient
 import org.java_websocket.handshake.ServerHandshake
 import org.json.JSONObject
 import java.lang.Exception
 import java.net.URI
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class Lab7Fragment : Fragment() {
@@ -53,7 +47,7 @@ class Lab7Fragment : Fragment() {
         user_request = root.findViewById(R.id.user_text)
 
 
-        messagesRecyclerView = root.findViewById(R.id.albums)
+        messagesRecyclerView = root.findViewById(R.id.messages_recycler_view)
 
         messagesRecyclerView.layoutManager = LinearLayoutManager(context)
         messagesRecyclerView.adapter = Messages(messagesAll)
@@ -65,7 +59,8 @@ class Lab7Fragment : Fragment() {
         }
         send_message.setOnClickListener{
             val message = user_request.text.toString()
-            messagesAll.add(Message("user", message))
+            val date = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
+            messagesAll.add(Message("user", message,date))
             wss_client.send(message)
             user_request.text.clear()
 
@@ -87,7 +82,8 @@ class Lab7Fragment : Fragment() {
                     GlobalScope.launch {
                         Log.d("Socket",message)
                         Log.d("body", jsonmessage.get("body") as String)
-                        messagesAll.add(Message("Bot", jsonmessage.get("body") as String))
+                        val date = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
+                        messagesAll.add(Message("Bot", jsonmessage.get("body") as String,date))
                     }
                 }
             }
@@ -103,14 +99,21 @@ class Lab7Fragment : Fragment() {
         }
     }
     
-    data class Message(val who:String, val text:String)
+    data class Message(val who:String, val text:String, val date: String)
         
     
     class Messages(private val messagesList: MutableList<Message>) :
         RecyclerView.Adapter<Messages.MsgViewHolder>() {
         inner class MsgViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-            var text: TextView = itemView.findViewById(R.id.user_msg_model)
+            var bot_text: TextView = itemView.findViewById(R.id.bot_msg_model)
+            var user_text: TextView = itemView.findViewById(R.id.user_msg_model)
+            var bot_layout :LinearLayout = itemView.findViewById(R.id.bot_layout)
+            var user_layout :LinearLayout = itemView.findViewById(R.id.user_layout)
+            var bot_spacer : Space = itemView.findViewById(R.id.bot_spacer)
+            var user_spacer : Space = itemView.findViewById(R.id.user_spacer)
+            var bot_date : TextView = itemView.findViewById(R.id.bot_date)
+            var user_date : TextView = itemView.findViewById(R.id.user_date)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MsgViewHolder {
@@ -122,10 +125,28 @@ class Lab7Fragment : Fragment() {
         override fun onBindViewHolder(holder: MsgViewHolder, position: Int) {
             val item = messagesList[position]
             holder.apply {
-                text.text = item.text
-
-
+                if (item.who=="user"){
+                    user_text.text=item.text
+                    bot_layout.visibility = View.GONE
+                    user_layout.visibility = View.VISIBLE
+                    user_spacer.visibility = View.VISIBLE
+                    bot_spacer.visibility=View.GONE
+                    bot_date.visibility = View.GONE
+                    user_date.visibility = View.VISIBLE
+                    user_date.text=item.date
+                }
+                else{
+                    bot_text.text=item.text
+                    user_layout.visibility = View.GONE
+                    bot_layout.visibility = View.VISIBLE
+                    bot_spacer.visibility = View.VISIBLE
+                    user_spacer.visibility=View.GONE
+                    user_date.visibility = View.GONE
+                    bot_date.visibility = View.VISIBLE
+                    bot_date.text=item.date
+                }
             }
+
         }
 
         override fun getItemCount() = messagesList.size
