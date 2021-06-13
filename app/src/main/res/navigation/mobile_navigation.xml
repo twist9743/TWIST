@@ -42,4 +42,9 @@
         android:name="com.example.lunin_ia_191_352.ui.Lab7.Lab7Fragment"
         android:label="lab3"
         tools:layout="@layout/fragment_lab7" />
+    <fragment
+        android:id="@+id/navigation_lab8"
+        android:name="com.example.lunin_ia_191_352.ui.Lab8.Lab8Fragment"
+        android:label="lab3"
+        tools:layout="@layout/fragment_lab8" />
 </navigation>
