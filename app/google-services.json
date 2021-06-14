@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "114072376964",
-    "project_id": "lab4-twitter",
-    "storage_bucket": "lab4-twitter.appspot.com"
+    "project_number": "644827066366",
+    "project_id": "twist-5a896",
+    "storage_bucket": "twist-5a896.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:114072376964:android:0bff83d229699ac11694d1",
+        "mobilesdk_app_id": "1:644827066366:android:53a20e04710626de4f1aaf",
         "android_client_info": {
           "package_name": "com.example.lunin_ia_191_352"
         }
       },
       "oauth_client": [
         {
-          "client_id": "114072376964-k22sm5vajebb0nq66upantr96lu794rl.apps.googleusercontent.com",
+          "client_id": "644827066366-luvvcicmq67ji2c2sv03nco3cnic295m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyACEmSJqPKE5DvkE5ldYcZ1KKG2YxYPFQo"
+          "current_key": "AIzaSyBo80aDDgBRgAFTt4SCbs6Igp20-l4K7vs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "114072376964-k22sm5vajebb0nq66upantr96lu794rl.apps.googleusercontent.com",
+              "client_id": "644827066366-luvvcicmq67ji2c2sv03nco3cnic295m.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

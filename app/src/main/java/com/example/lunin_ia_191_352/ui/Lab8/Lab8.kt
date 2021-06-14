@@ -12,6 +12,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.lunin_ia_191_352.R
 import com.google.android.gms.common.util.Base64Utils
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -30,7 +34,14 @@ class Lab8Fragment : Fragment() {
     private lateinit var jwt_token : TextView
     private lateinit var image : ImageView
     private lateinit var login_btn : Button
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
     var url = "https://kotlin-jwt.herokuapp.com/"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        firebaseAnalytics = Firebase.analytics
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +58,9 @@ class Lab8Fragment : Fragment() {
         login_btn = root.findViewById(R.id.jwtlogin)
 
         login_btn.setOnClickListener{
+            firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
+                param(FirebaseAnalytics.Param.ITEM_NAME, "Button")
+            }
 
             val data = hashMapOf<String,String>()
             data["username"] = login.text.toString()

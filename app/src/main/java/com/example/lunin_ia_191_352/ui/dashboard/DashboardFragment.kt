@@ -22,6 +22,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.lunin_ia_191_352.R
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.analytics.ktx.logEvent
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Runnable
@@ -40,6 +44,20 @@ class DashboardFragment : Fragment() {
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
     private var imageCapture: ImageCapture? = null
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        firebaseAnalytics = Firebase.analytics
+    }
+
+    override fun onResume() {
+        super.onResume()
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
+            param(FirebaseAnalytics.Param.ITEM_NAME, "Resume Fragment 2")
+        }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,6 +72,12 @@ class DashboardFragment : Fragment() {
 
         val switch = root.findViewById<Switch>(R.id.switchtocamera)
         val videoView = root.findViewById<VideoView>(R.id.CustomVideo)
+
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
+            param(FirebaseAnalytics.Param.ITEM_NAME, "Fragment 2")
+        }
+
+
 
         val camera = root.findViewById<PreviewView>(R.id.viewFinder)
         val offlineUri = Uri.parse("android.resource://com.example.lunin_ia_191_352/2131820544")
