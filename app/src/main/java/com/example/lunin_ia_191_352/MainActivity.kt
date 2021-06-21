@@ -41,6 +41,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         val navController = findNavController(R.id.nav_host_fragment)
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
+                param(FirebaseAnalytics.Param.ITEM_NAME, "Fragment opened")
+            }
+        }
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -49,13 +54,21 @@ class MainActivity : AppCompatActivity() {
         val navView: NavigationView = findViewById(R.id.nav_view)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_home, R.id.navigation_lab5, R.id.navigation_lab3, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_lab6,R.id.navigation_lab7,R.id.navigation_lab8), drawerLayout)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home,
+                R.id.navigation_lab5,
+                R.id.navigation_lab3,
+                R.id.navigation_dashboard,
+                R.id.navigation_notifications,
+                R.id.navigation_lab6,
+                R.id.navigation_lab7,
+                R.id.navigation_lab8
+            ), drawerLayout
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
-
-
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -70,14 +83,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
             param(FirebaseAnalytics.Param.ITEM_NAME, "App closed")
         }
+        super.onDestroy()
+
     }
-
-
-
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

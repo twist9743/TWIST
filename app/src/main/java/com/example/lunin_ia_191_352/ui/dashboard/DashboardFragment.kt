@@ -46,17 +46,9 @@ class DashboardFragment : Fragment() {
     private var imageCapture: ImageCapture? = null
     private lateinit var firebaseAnalytics: FirebaseAnalytics
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        firebaseAnalytics = Firebase.analytics
-    }
 
-    override fun onResume() {
-        super.onResume()
-        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
-            param(FirebaseAnalytics.Param.ITEM_NAME, "Resume Fragment 2")
-        }
-    }
+
+
 
 
     override fun onCreateView(
@@ -73,9 +65,7 @@ class DashboardFragment : Fragment() {
         val switch = root.findViewById<Switch>(R.id.switchtocamera)
         val videoView = root.findViewById<VideoView>(R.id.CustomVideo)
 
-        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
-            param(FirebaseAnalytics.Param.ITEM_NAME, "Fragment 2")
-        }
+
 
 
 
